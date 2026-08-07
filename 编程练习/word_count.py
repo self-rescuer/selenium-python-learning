@@ -1,5 +1,5 @@
 try:
-    with open('test.txt','r',encoding='utf-8')as f:
+    with open('../test.txt', 'r', encoding='utf-8')as f:
         test=f.read()
         test1=test.split()
         num=len(test1)
