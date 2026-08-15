@@ -1,23 +1,2 @@
-# IDE配置
-.idea/
-.vscode/
-
-# Python缓存
-__pycache__/
-*.pyc
-*.pyo
-
-# 浏览器驱动（体积太大）
-*.exe
-*.zip
-
-# 临时文件和Word文档
-*.docx
-*.rar
-*.zip
-*.jpg
-*.png
-*.mp4
-
-# 本地日志
-*.log
+allure-results/
+allure-report/
