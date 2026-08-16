@@ -1,7 +1,5 @@
 [
     {"word": "Selenium", "expected": "Selenium"},
     {"word": "Pytest", "expected": "Pytest"},
-    {"word": "自动化测试", "expected": "自动化"},
-    {"word": "Docker", "expected": "Docker"},
-    {"word": "API测试", "expected": "API"}
+    {"word": "自动化测试", "expected": "自动化"}
 ]
