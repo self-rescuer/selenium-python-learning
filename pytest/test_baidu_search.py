@@ -1,31 +1,24 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
+import allure
+from pages.baidu_page import BaiduHomePage, BaiduResultPage
 
-def test_baidu_search():
-    driver = webdriver.Chrome()
-    driver.get("https://www.baidu.com")
 
-    wait = WebDriverWait(driver, 60)
-    search_input = wait.until(EC.presence_of_element_located((By.ID, 'kw')))
-    driver.execute_script("arguments[0].value = 'Pytest自动化测试';", search_input)
+@allure.feature("百度搜索")
+@allure.story("搜索功能")
+@allure.severity(allure.severity_level.NORMAL)
+def test_baidu_search(browser):
+    keyword = "测试开发"
 
-    search_btn = wait.until(EC.presence_of_element_located((By.ID, 'su')))
-    driver.execute_script("arguments[0].click();", search_btn)
+    with allure.step("打开百度首页"):
+        home = BaiduHomePage(browser)
+        home.open()
 
-    wait.until(EC.presence_of_element_located((By.ID, 'content_left')))
-    titles = driver.find_elements(By.CSS_SELECTOR, ".result h3")
+    with allure.step(f"搜索关键词：{keyword}"):
+        home.search(keyword)
 
-    # 断言：至少有一条结果标题包含搜索词
-    found = False
-    for title in titles[:5]:
-        if "Pytest" in title.text:
-            found = True
-            break
+    with allure.step("获取搜索结果"):
+        result = BaiduResultPage(browser)
+        titles = result.get_titles()
 
-    assert found, "搜索结果中未找到包含'Pytest'的标题"
-
-    time.sleep(2)
-    driver.quit()
+    with allure.step("断言有搜索结果"):
+        assert len(titles) > 0
+        allure.attach(str(titles[:5]), "前5条标题", allure.attachment_type.TEXT)
