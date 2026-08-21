@@ -18,18 +18,16 @@ def browser():
 @pytest.fixture
 def search_data():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(current_dir, "pytest", "test_data.json")
+    json_path = os.path.join(current_dir, "data", "test_data.json")
     with open(json_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """用例执行后自动截图，并附加到 Allure 报告"""
     outcome = yield
     report = outcome.get_result()
 
-    # 只在用例真正执行阶段（call）截图，setup/teardown 不截
     if report.when == "call":
         driver = item.funcargs.get("browser")
         if driver:
