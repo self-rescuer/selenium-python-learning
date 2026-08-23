@@ -18,3 +18,21 @@
 2026-08-22 16:23:27 [INFO] BaiduHomePage: 查找元素: ('id', 'su')
 2026-08-22 16:23:27 [INFO] BaiduResultPage: 获取元素列表文本: ('css selector', 'h3.t a')
 2026-08-22 16:23:27 [INFO] BaiduResultPage: 查找元素列表: ('css selector', 'h3.t a')
+2026-08-23 11:24:38 [INFO] BaiduHomePage: 输入文本到 ('id', 'kw'): 测试开发
+2026-08-23 11:24:38 [INFO] BaiduHomePage: 查找元素: ('id', 'kw')
+2026-08-23 11:24:38 [INFO] BaiduHomePage: 点击元素: ('id', 'su')
+2026-08-23 11:24:38 [INFO] BaiduHomePage: 查找元素: ('id', 'su')
+2026-08-23 11:24:38 [INFO] BaiduResultPage: 获取元素列表文本: ('css selector', 'h3.t a')
+2026-08-23 11:24:38 [INFO] BaiduResultPage: 查找元素列表: ('css selector', 'h3.t a')
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 输入文本到 ('id', 'kw'): 软件测试
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 查找元素: ('id', 'kw')
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 点击元素: ('id', 'su')
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 查找元素: ('id', 'su')
+2026-08-23 11:25:02 [INFO] BaiduResultPage: 获取元素列表文本: ('css selector', 'h3.t a')
+2026-08-23 11:25:02 [INFO] BaiduResultPage: 查找元素列表: ('css selector', 'h3.t a')
+2026-08-23 11:25:30 [INFO] BaiduHomePage: 输入文本到 ('id', 'kw'): pytest
+2026-08-23 11:25:30 [INFO] BaiduHomePage: 查找元素: ('id', 'kw')
+2026-08-23 11:25:32 [INFO] BaiduHomePage: 点击元素: ('id', 'su')
+2026-08-23 11:25:32 [INFO] BaiduHomePage: 查找元素: ('id', 'su')
+2026-08-23 11:25:32 [INFO] BaiduResultPage: 获取元素列表文本: ('css selector', 'h3.t a')
+2026-08-23 11:25:32 [INFO] BaiduResultPage: 查找元素列表: ('css selector', 'h3.t a')
