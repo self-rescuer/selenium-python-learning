@@ -1,0 +1,6 @@
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 输入文本到 ('id', 'kw'): 软件测试
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 查找元素: ('id', 'kw')
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 点击元素: ('id', 'su')
+2026-08-23 11:25:02 [INFO] BaiduHomePage: 查找元素: ('id', 'su')
+2026-08-23 11:25:02 [INFO] BaiduResultPage: 获取元素列表文本: ('css selector', 'h3.t a')
+2026-08-23 11:25:02 [INFO] BaiduResultPage: 查找元素列表: ('css selector', 'h3.t a')

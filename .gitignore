@@ -1,2 +1,4 @@
 allure-results/
-allure-report/
+allure-report/__pycache__/
+.pytest_cache/
+logs/

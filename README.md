@@ -47,3 +47,11 @@ text
 - 百度首页搜索框存在交互限制，统一使用 `execute_script` 操作。
 - 默认超时时间为 30 秒，因练习环境可能弹出人机验证。
 - 测试执行后自动截图并附加到 Allure 报告。
+
+## 技术栈
+
+- Python 3.11
+- Selenium
+- Pytest
+- Allure
+- POM 设计模式

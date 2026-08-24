@@ -1,0 +1,6 @@
+[32mINFO    [0m BaiduHomePage:base_page.py:29 输入文本到 ('id', 'kw'): 软件测试
+[32mINFO    [0m BaiduHomePage:base_page.py:15 查找元素: ('id', 'kw')
+[32mINFO    [0m BaiduHomePage:base_page.py:24 点击元素: ('id', 'su')
+[32mINFO    [0m BaiduHomePage:base_page.py:15 查找元素: ('id', 'su')
+[32mINFO    [0m BaiduResultPage:base_page.py:39 获取元素列表文本: ('css selector', 'h3.t a')
+[32mINFO    [0m BaiduResultPage:base_page.py:19 查找元素列表: ('css selector', 'h3.t a')
