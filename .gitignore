@@ -3,3 +3,4 @@ allure-report/__pycache__/
 .pytest_cache/
 logs/
 node_modules/
+node_modules/ 

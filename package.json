@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@playwright/test": "^1.62.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1"
   }
 }
