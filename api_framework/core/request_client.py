@@ -1,4 +1,6 @@
+import time
 import requests
+from requests.exceptions import Timeout, ConnectionError, RequestException
 from core.config_manager import ConfigManager
 from core.logger import get_logger
 
@@ -13,28 +15,32 @@ class RequestClient:
         self.headers = self.config.headers
         self.logger = get_logger(self.__class__.__name__)
 
-    def _request(self, method, path, **kwargs):
-        """所有请求的公共处理逻辑"""
+    def _request(self, method, path, retries=3, **kwargs):
         url = self.base_url + path
-
-        # 合并公共 headers 和本次请求的 headers
         headers = {**self.headers, **kwargs.pop("headers", {})}
-
-        # 如果没传 timeout，用配置里的
         kwargs.setdefault("timeout", self.timeout)
 
         self.logger.info(f"请求 {method} {url}")
-        if "params" in kwargs:
-            self.logger.info(f"请求参数: {kwargs['params']}")
-        if "json" in kwargs:
-            self.logger.info(f"请求体: {kwargs['json']}")
 
-        response = requests.request(method, url, headers=headers, **kwargs)
+        for attempt in range(1, retries + 1):
+            try:
+                response = requests.request(method, url, headers=headers, **kwargs)
+                self.logger.info(f"响应状态码: {response.status_code}")
+                self.logger.info(f"响应内容: {response.text[:200]}")
+                return response
 
-        self.logger.info(f"响应状态码: {response.status_code}")
-        self.logger.info(f"响应内容: {response.text[:200]}")
+            except Timeout:
+                self.logger.warning(f"第 {attempt} 次请求超时")
+            except ConnectionError:
+                self.logger.warning(f"第 {attempt} 次请求连接失败")
+            except RequestException as e:
+                self.logger.error(f"请求异常: {e}")
+                raise
 
-        return response
+            if attempt < retries:
+                time.sleep(1)
+
+        raise Timeout(f"请求 {url} 重试 {retries} 次后仍失败")
 
     def get(self, path, **kwargs):
         return self._request("GET", path, **kwargs)
