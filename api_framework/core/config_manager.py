@@ -2,13 +2,17 @@ import json
 import os
 
 class ConfigManager:
-    def __init__(self,config_file='config.json'):
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        config_dir = os.path.join(os.path.dirname(current_dir),'config')
-        config_path = os.path.join(config_dir,config_file)
+    def __init__(self, config_file=None):
+        if config_file is None:
+            env = os.getenv("TEST_ENV", "dev")
+            config_file = f"config_{env}.json"
 
-        with open(config_path,'r')as f:
-            self.config=json.load(f)
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        config_dir = os.path.join(os.path.dirname(current_dir), "config")
+        config_path = os.path.join(config_dir, config_file)
+
+        with open(config_path, "r", encoding="utf-8") as f:
+            self.config = json.load(f)
 
 
     def get(self,key,default=None):

@@ -3,6 +3,7 @@ import requests
 from requests.exceptions import Timeout, ConnectionError, RequestException
 from core.config_manager import ConfigManager
 from core.logger import get_logger
+import allure
 
 
 class RequestClient:
@@ -27,6 +28,17 @@ class RequestClient:
                 response = requests.request(method, url, headers=headers, **kwargs)
                 self.logger.info(f"响应状态码: {response.status_code}")
                 self.logger.info(f"响应内容: {response.text[:200]}")
+
+                allure.attach(
+                    f"请求: {method} {url}\n"
+                    f"请求参数: {kwargs.get('params', {})}\n"
+                    f"请求体: {kwargs.get('json', {})}\n"
+                    f"响应状态码: {response.status_code}\n"
+                    f"响应内容: {response.text[:2000]}",
+                    name=f"{method} {path}",
+                    attachment_type=allure.attachment_type.TEXT
+                )
+
                 return response
 
             except Timeout:
