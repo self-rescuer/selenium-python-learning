@@ -1,8 +1,0 @@
-{
-  "base_url": "https://api.github.com",
-  "timeout": 10,
-  "headers": {
-    "Accept":"application/vnd.github+json",
-    "User-Agent": "api-test-framework"
-  }
-}
